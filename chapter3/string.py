@@ -1,6 +1,6 @@
 
 name1 = "Abubakar"
-
+# it will treat as  alist
 name2 = name1[0:3]#it will return characters from index 0 to 2
 
 print(name2)
@@ -27,5 +27,29 @@ a = "123456789"
 
 print(a[1:9:2])
 
+x = "    hello   " # use for login on production level
+
+print(x.strip())
+
+# ---------------------------------#
+
+# {} -> placeholder
+
+subject = "ICT"
+
+std = 2
+
+var = "In {} subject there are {} dtudents"
+
+print(var.format(subject, std))
+
+# for in loop
+
+for x in subject:
+    print(subject[1])
 
 
+list = ["abc", "xyz"]
+
+for y in list[1]:
+    print(y)

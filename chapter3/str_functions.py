@@ -1,5 +1,5 @@
 
-name = "\"abubakar\""#to add quotes
+name = "\"abubakar\""#  '\'to add quotes
 
 print(len(name))
 
