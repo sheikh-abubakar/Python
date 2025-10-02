@@ -9,12 +9,14 @@ def load_data():
     
 def save_data_helper(videos):
     with open('youtube.txt', 'w') as file:
-        json.dump(videos, file) # whata to write, wheer to write
+        json.dump(videos, file) # whata to write, where to write
 
 def list_all_videos(videos):
     # to add indexing we can use enum
+    print("\nYour YouTube Videos:")
+    print("*"*30)
     for index, video in enumerate(videos, start=1):
-        print(f"{index}. ")
+        print(f"{index}. {video['name']} -Duration: {video['time']}")
 
 def add_video(videos):
     name = input("Enter video name: ")
@@ -23,15 +25,26 @@ def add_video(videos):
     save_data_helper(videos)
 
 def update_video(videos):
-    pass
-
+    list_all_videos(videos)
+    vid_num = int(input("enter the video number to update\n"))
+    if 1 <= vid_num <= len(videos):
+        name = input("enter video namae: ")
+        time = input("enter video time stamp: ")
+        videos[vid_num - 1] = {'name':name, 'time':time}
+        save_data_helper(videos)
+    else:
+        print("Invalid video number.")
 def delete_video(videos):
-    pass
-
+    list_all_videos(videos)
+    vid_num = int(input("enter the video number to delete\n"))
+    if 1 <= vid_num <= len(videos):
+        videos.pop(vid_num-1)
+        save_data_helper(videos)
+    else:
+        print("Invalid video number.")
 
 
 def main():
-    videos = []
     videos = load_data()
     
     while True:
@@ -42,7 +55,7 @@ def main():
         print("4. Delete a youtube Video")
         print("5. exit")
         choice = input("enter a choice\n")
-        print(videos)
+        
 
     # just ike switch staatement
         match choice:
